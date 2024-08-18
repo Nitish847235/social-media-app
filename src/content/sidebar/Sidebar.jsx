@@ -1,4 +1,5 @@
 "use client";
+import { ProtectedRoute } from '@/app/components/ProtectedRoute';
 import { useSidebarStore } from '@/lib/store';
 import { Avatar } from '@mui/material';
 import Image from 'next/image';
@@ -12,10 +13,11 @@ import { RiLogoutCircleLine } from "react-icons/ri";
 const Sidebar = () => {
     const openSidebar = useSidebarStore((state)=> state.openSidebar)
     const updateSidebar = useSidebarStore((state)=> state.updateSidebar)
-    const pathname = usePathname()
+    const pathname = usePathname();
 
   return (
     // <div className='h-screen relative'>
+    <ProtectedRoute>
         <div className='fixed left-0 lg:top-0 bottom-0 max-lg:right-0 max-lg:bg-[#283048] lg:h-screen max-lg:w-screen flex'>
             
         <div className={`flex lg:flex-col gap-5 lg:justify-center justify-between lg:p-4 px-4 py-2 lg:h-full relative ${openSidebar?'lg:w-[250px]':'lg:w-[80px]'} max-lg:w-full transition-all duration-500 lg:border-r border-t border-[#404658]`}>
@@ -70,7 +72,7 @@ const Sidebar = () => {
           </div>
           </div>
         </div>
-    // </div>
+    </ProtectedRoute>
   )
 }
 
