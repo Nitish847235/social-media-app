@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         let token = Cookies.get('token');
         setLoading(true) 
-        setUser(token);
+        // setUser(token);
         const userdata = async()=>{
             if (token) {
                 const user = await UserAuth(token);

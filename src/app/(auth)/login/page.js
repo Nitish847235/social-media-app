@@ -18,11 +18,11 @@ export default function LoginPage() {
     const router = useRouter();
 
     useEffect(() => {
-        if (user) {
+        if (user && !loading) {
             router.replace('/');
         }
-    }, [user, router]);
-
+    }, [user,loading]);
+    console.log("login",loading);
     if(loading){
         return <Loader/>;
     }
@@ -71,7 +71,8 @@ export default function LoginPage() {
         //   if (data.redirectUrl) {
         //     window.location.href = data.redirectUrl; // Handle redirection
         //     }
-          router.push('/');
+        console.log(hello);
+          router.replace('/');
             
           }
           else{
@@ -91,8 +92,9 @@ export default function LoginPage() {
       
     
       return (
-        <Suspense fallback={<Loading/>}>
-        <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md mt-10 text-black">
+        // <Suspense fallback={<Loading/>}>
+            <div className='w-full h-screen flex justify-center items-center'>
+        <div className="max-w-md sm:min-w-96 w-full sm:m-auto mx-8 bg-[#e7d6d6] max-h-fit p-8 rounded-lg shadow-md text-black">
           <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
           <Formik
             initialValues={initialValues}
@@ -135,6 +137,12 @@ export default function LoginPage() {
               </Form>
             )}
           </Formik>
+          <div className='w-full flex justify-end mt-4'>
+            <div className='flex items-center gap-2'>
+                <p>Are you new?</p>
+                <button onClick={()=> router.push('/register')} className="text-indigo-600 hover:text-indigo-700">Register</button>
+            </div>
+          </div>
           <ToastContainer
 position="top-right"
 autoClose={5000}
@@ -151,6 +159,7 @@ transition={Bounce}
 {/* Same as */}
 <ToastContainer />
         </div>
-        </Suspense>
+        </div>
+        // </Suspense>
     );
 }

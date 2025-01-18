@@ -12,14 +12,20 @@ export const ProtectedRoute = ({ children }) => {
     const router = useRouter();
     const pathname = usePathname();
     useEffect(() => {
-        let token = Cookies.get('token')
-        if (!user && !loading) {
+        let token = Cookies.get('token');
+        if(!token){
             if(pathname !== '/register'){
                 router.replace('/login');
 
             }
         }
-    }, [user, router]);
+        else if (!user && !loading) {
+            if(pathname !== '/register'){
+                router.replace('/login');
+
+            }
+        }
+    }, [user, router,loading]);
 
     if(loading){
         return <Loader/>

@@ -52,7 +52,7 @@ const HomePage = () => {
           <div>
             <div className='w-[470px] mx-auto border border-[#404658] py-4 rounded-md '>
                 <div className='flex gap-4 px-4'>
-                  <Avatar/>
+                  <Avatar className='-z-10'/>
                   <div className='w-[390px]'>
                     <p className='text-[14px] flex items-center gap-1'>Nitish <span className='w-1 block h-1 rounded bg-[#8F8F8F] ml-1'></span><span className='text-[#8F8F8F]'>2d</span></p>
                     <p className='text-[12px]'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, veritatis.</p>
@@ -130,7 +130,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className='px-4 py-2'>
-                  <div className='border rounded-3xl px-2 min-h-8 flex justify-center relative'>
+                  <div className='border rounded-3xl px-2 min-h-8 flex justify-center relative -z-10'>
                     <textarea id="inputTextArea" className='w-full m-1 text-[14px] bg-transparent focus:outline-none resize-none' value={message}
           onChange={handleInputChange}
           placeholder="Add comment..."

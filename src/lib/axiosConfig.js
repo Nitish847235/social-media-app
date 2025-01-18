@@ -10,10 +10,10 @@ const axiosApp = axios.create({
 axiosApp.interceptors.response.use(
   response => response,
   error => {
-    if (error.response && error.response.status === 401) {
-      // Redirect to login page
-      window.location.href = '/login'; // Change '/login' to your actual login page URL
-    }
+    // if (error.response && error.response.status === 401) {
+    //   // Redirect to login page
+    //   window.location.href = '/login'; // Change '/login' to your actual login page URL
+    // }
     return Promise.reject(error.response.data.err);
   }
 );

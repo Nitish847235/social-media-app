@@ -1,10 +1,10 @@
 import axiosApp from "../lib/axiosConfig";
 
-class UserApi {
+class ChatApi {
 
-    async searchUser(data,page=1,limit=10){
+    async findAllChat(page=1,limit=10){
         try {
-            let response = await axiosApp.post(`${process.env.NEXT_PUBLIC_HOST}/userapp/search/getUser/?page=${page}&limit=${limit}`,data,{withCredentials:true})
+            let response = await axiosApp.get(`${process.env.NEXT_PUBLIC_HOST}/userapp/chat/findAllChat?page=${page}&limit=${limit}`)
 
             return response;
         } catch (error) {
@@ -44,4 +44,4 @@ class UserApi {
     }
 }
 
-export const userapi = new UserApi();
+export const chatApi = new ChatApi();
